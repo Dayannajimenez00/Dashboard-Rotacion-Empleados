@@ -230,6 +230,38 @@ st.download_button(
     file_name="datos_filtrados.csv",
     mime="text/csv")
 
+st.header("Validación estadística")
+
+st.subheader("Comparación de ingresos según la rotación")
+
+st.write("""
+Se realizó una prueba estadística para comparar el ingreso mensual
+promedio de los empleados que permanecieron en la empresa y de aquellos
+que se retiraron.
+""")
+
+st.write(f"**Estadístico t:** {estadistico:.4f}")
+st.write(f"**Valor p:** {valor_p:.12f}")
+
+if valor_p < 0.05:
+    st.success("""
+    **Interpretación:** Los resultados muestran una diferencia
+    estadísticamente significativa entre los ingresos mensuales
+    promedio de los empleados que permanecieron y los que se retiraron.
+    En este conjunto de datos, quienes se retiraron tenían un ingreso
+    promedio menor.
+
+    Este resultado muestra una relación entre el ingreso mensual y la
+    rotación, pero no demuestra que el ingreso sea la causa directa
+    de los retiros.
+    """)
+else:
+    st.info("""
+    **Interpretación:** No se encontró evidencia estadística suficiente
+    para afirmar que existe una diferencia entre los ingresos promedio
+    de los empleados que permanecieron y los que se retiraron.
+    """)
+
 st.header("Hallazgos e interpretación")
 
 st.markdown("""
