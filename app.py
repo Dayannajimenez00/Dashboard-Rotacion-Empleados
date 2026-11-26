@@ -270,40 +270,6 @@ else:
 
 st.header("Hallazgos e interpretación")
 
-st.markdown("""
-El análisis estudia la rotación de empleados mediante variables
-laborales y salariales del conjunto de datos IBM HR Analytics.
-
-Las visualizaciones permiten examinar la frecuencia de retiros,
-la distribución de los ingresos mensuales y la relación entre
-el nivel del cargo y la remuneración. También permiten comparar
-el ingreso promedio entre departamentos y niveles laborales.
-
-La exploración de los datos facilita identificar diferencias
-entre grupos de empleados. La prueba t de Welch complementa
-este análisis al evaluar si existe una diferencia estadísticamente
-significativa entre los ingresos promedio de quienes permanecen
-y quienes se retiran.
-
-Estos resultados pueden orientar nuevas preguntas sobre las
-condiciones laborales, la remuneración y la permanencia del
-personal. Sin embargo, no permiten afirmar que el ingreso sea
-por sí solo la causa de la rotación. Por ello, se recomienda
-considerar también factores como el cargo, la antigüedad,
-el departamento y las condiciones de trabajo.
-
-La información debe interpretarse teniendo en cuenta los
-filtros seleccionados y las características de la población
-analizada.""")
-
-st.caption(
-    "Fuente: IBM HR Analytics Employee Attrition & Performance.")
-
-
-
-
-st.header("Hallazgos e interpretación")
-
 st.subheader("¿Qué analicé?")
 st.markdown("""
 Se analizó el conjunto de datos **IBM HR Analytics Employee Attrition & Performance**,
@@ -322,8 +288,7 @@ mientras que el de quienes se retiraron fue de **$4.787,09**.
 
 Además, las visualizaciones permiten observar diferencias en los ingresos
 según el nivel del cargo y comparar la cantidad de empleados que permanecen
-y que se retiran.
-""")
+y que se retiran.""")
 
 st.subheader("¿Qué significa?")
 st.markdown("""
@@ -334,8 +299,7 @@ una posible relación entre la remuneración y la rotación, pero no demuestra
 que el salario sea la causa directa de los retiros.
 
 Por esta razón, también es importante considerar otros aspectos, como las
-oportunidades de crecimiento, el departamento y las condiciones laborales.
-""")
+oportunidades de crecimiento, el departamento y las condiciones laborales.""")
 
 st.subheader("¿Qué se recomendaría?")
 st.markdown("""
@@ -346,8 +310,7 @@ la rotación por departamento y nivel del cargo, con el propósito de identifica
 áreas que requieran mayor atención.
 
 Estas acciones pueden ayudar a orientar decisiones de gestión del talento
-humano y promover estrategias para mejorar la permanencia de los empleados.
-""")
+humano y promover estrategias para mejorar la permanencia de los empleados.""")
 
 st.subheader("Visualizaciones que respaldan los hallazgos")
 
