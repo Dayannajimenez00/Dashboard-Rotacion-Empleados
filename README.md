@@ -11,6 +11,6 @@ https://github.com/Dayannajimenez00/Dashboard-Rotacion-Empleados
 
 Enlace a la aplicación publicada en Streamlit:
 
-https://dashboard-rotacion-empleados-rgk9fwtahensz5ulcrfxb.streamlit.app/
+https://dashboard-rotacion-empleados-rgk9fwtahenszx5ulcrfxb.streamlit.app/
 
 Evidencia: Se adjunta una captura de pantalla del repositorio público, donde se observa la estructura de archivos del proyecto.
