@@ -351,7 +351,7 @@ humano y promover estrategias para mejorar la permanencia de los empleados.
 
 st.subheader("Visualizaciones que respaldan los hallazgos")
 
-st.plotly_chart(fig1, use_container_width=True)
-st.plotly_chart(fig2, use_container_width=True)
+st.plotly_chart(fig1, use_container_width=True, key="grafica_hallazgos_1")
+st.plotly_chart(fig2, use_container_width=True, key="grafica_hallazgos_2")
 
 st.caption("Fuente: IBM HR Analytics Employee Attrition & Performance.")
