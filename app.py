@@ -298,3 +298,60 @@ analizada.""")
 
 st.caption(
     "Fuente: IBM HR Analytics Employee Attrition & Performance.")
+
+
+
+
+st.header("Hallazgos e interpretación")
+
+st.subheader("¿Qué analicé?")
+st.markdown("""
+Se analizó el conjunto de datos **IBM HR Analytics Employee Attrition & Performance**,
+que contiene información de 1.470 empleados y 35 variables relacionadas con
+sus características personales y laborales. Entre los aspectos estudiados se
+encuentran la edad, el departamento, el nivel del cargo, los ingresos mensuales
+y la permanencia o retiro de los empleados de la organización.
+""")
+
+st.subheader("¿Qué encontré?")
+st.markdown("""
+En el conjunto completo de datos, 237 empleados se retiraron, lo que representa
+aproximadamente el 16,12 % del personal analizado. También se encontró que el
+ingreso mensual promedio de quienes permanecieron fue de **$6.832,74**,
+mientras que el de quienes se retiraron fue de **$4.787,09**.
+
+Además, las visualizaciones permiten observar diferencias en los ingresos
+según el nivel del cargo y comparar la cantidad de empleados que permanecen
+y que se retiran.
+""")
+
+st.subheader("¿Qué significa?")
+st.markdown("""
+Estos resultados muestran que existen diferencias entre los grupos de empleados.
+En particular, quienes se retiraron registraron un ingreso mensual promedio
+inferior al de quienes permanecieron. Esta diferencia permite identificar
+una posible relación entre la remuneración y la rotación, pero no demuestra
+que el salario sea la causa directa de los retiros.
+
+Por esta razón, también es importante considerar otros aspectos, como las
+oportunidades de crecimiento, el departamento y las condiciones laborales.
+""")
+
+st.subheader("¿Qué se recomendaría?")
+st.markdown("""
+Se recomienda revisar las condiciones salariales y las oportunidades de
+desarrollo profesional, especialmente en los grupos donde se observe una
+mayor frecuencia de retiros. También conviene realizar un seguimiento de
+la rotación por departamento y nivel del cargo, con el propósito de identificar
+áreas que requieran mayor atención.
+
+Estas acciones pueden ayudar a orientar decisiones de gestión del talento
+humano y promover estrategias para mejorar la permanencia de los empleados.
+""")
+
+st.subheader("Visualizaciones que respaldan los hallazgos")
+
+st.plotly_chart(fig1, use_container_width=True)
+st.plotly_chart(fig2, use_container_width=True)
+
+st.caption("Fuente: IBM HR Analytics Employee Attrition & Performance.")
