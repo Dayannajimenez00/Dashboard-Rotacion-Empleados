@@ -14,3 +14,5 @@ Enlace a la aplicación publicada en Streamlit:
 https://dashboard-rotacion-empleados-rgk9fwtahenszx5ulcrfxb.streamlit.app/
 
 Evidencia: Se adjunta una captura de pantalla del repositorio público, donde se observa la estructura de archivos del proyecto.
+
+<img width="1910" height="1030" alt="Screenshot 2026-11-25 225941" src="https://github.com/user-attachments/assets/baa32104-821c-475c-9809-b065b5666718" />
