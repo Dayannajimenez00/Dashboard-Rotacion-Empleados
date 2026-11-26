@@ -234,29 +234,39 @@ st.header("Validación estadística")
 st.subheader("Comparación de ingresos según la rotación")
 
 st.write("""
-Se realizó una prueba estadística para comparar el ingreso mensual
-promedio de los empleados que permanecieron en la empresa y de aquellos
-que se retiraron.""")
+Se compararon los ingresos mensuales promedio de los empleados
+que permanecieron en la organización y de aquellos que se retiraron.""")
+
+st.write(
+    f"**Ingreso promedio de quienes permanecieron:** "
+    f"${grupo_no.mean():,.2f}")
+
+st.write(
+    f"**Ingreso promedio de quienes se retiraron:** "
+    f"${grupo_si.mean():,.2f}")
 
 st.write(f"**Estadístico t:** {estadistico:.4f}")
-st.write(f"**Valor p:** {valor_p:.12f}")
+st.write(f"**Valor p:** {valor_p:.6g}")
 
 if valor_p < 0.05:
     st.success("""
-    **Interpretación:** Los resultados muestran una diferencia
-    estadísticamente significativa entre los ingresos mensuales
-    promedio de los empleados que permanecieron y los que se retiraron.
-    En este conjunto de datos, quienes se retiraron tenían un ingreso
-    promedio menor.
+    **Interpretación de los resultados**
 
-    Este resultado muestra una relación entre el ingreso mensual y la
-    rotación, pero no demuestra que el ingreso sea la causa directa
+    Se encontró una diferencia entre los ingresos promedio
+    de los empleados que permanecieron y los que se retiraron.
+    En promedio, quienes se retiraron tenían ingresos mensuales
+    inferiores a los de quienes permanecieron.
+
+    Esto indica que existe una relación entre los ingresos
+    mensuales y la rotación de empleados en los datos analizados.
+    Sin embargo, no significa que el salario sea la causa directa
     de los retiros.""")
 else:
     st.info("""
-    **Interpretación:** No se encontró evidencia estadística suficiente
-    para afirmar que existe una diferencia entre los ingresos promedio
-    de los empleados que permanecieron y los que se retiraron.""")
+    **Interpretación de los resultados**
+
+    No se encontró evidencia suficiente para afirmar que
+    los ingresos promedio de ambos grupos sean diferentes.""")
 
 st.header("Hallazgos e interpretación")
 
