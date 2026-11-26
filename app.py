@@ -230,37 +230,85 @@ st.download_button(
     file_name="datos_filtrados.csv",
     mime="text/csv")
 
+
 st.header("Validación estadística")
 
 st.subheader("Comparación de ingresos según la rotación")
 
 st.write("""
-Se realizó una prueba estadística para comparar el ingreso mensual
-promedio de los empleados que permanecieron en la empresa y de aquellos
-que se retiraron.
+Esta comparación permite identificar si existen diferencias
+en los ingresos mensuales de los empleados que permanecen
+en la organización y aquellos que se retiran.
+Los resultados cambian según los filtros seleccionados.
 """)
 
-st.write(f"**Estadístico t:** {estadistico:.4f}")
-st.write(f"**Valor p:** {valor_p:.12f}")
+grupo_no = datos.loc[
+    datos["Attrition"] == "No", "MonthlyIncome"]
 
-if valor_p < 0.05:
-    st.success("""
-    **Interpretación:** Los resultados muestran una diferencia
-    estadísticamente significativa entre los ingresos mensuales
-    promedio de los empleados que permanecieron y los que se retiraron.
-    En este conjunto de datos, quienes se retiraron tenían un ingreso
-    promedio menor.
+grupo_si = datos.loc[
+    datos["Attrition"] == "Yes", "MonthlyIncome"]
 
-    Este resultado muestra una relación entre el ingreso mensual y la
-    rotación, pero no demuestra que el ingreso sea la causa directa
-    de los retiros.
-    """)
+if len(grupo_no) > 1 and len(grupo_si) > 1:
+
+    estadistico, valor_p = ttest_ind(
+        grupo_no,
+        grupo_si,
+        equal_var=False)
+
+    media_no = grupo_no.mean()
+    media_si = grupo_si.mean()
+
+    diferencia = media_no - media_si
+
+    c1, c2 = st.columns(2)
+
+    c1.metric(
+        "Ingreso promedio: permanecen",
+        f"${media_no:,.2f}")
+
+    c2.metric(
+        "Ingreso promedio: se retiran",
+        f"${media_si:,.2f}")
+
+    st.write(f"**Estadístico t:** {estadistico:.4f}")
+    st.write(f"**Valor p:** {valor_p:.6g}")
+
+    if valor_p < 0.05:
+
+        st.success(
+            "Se encontró una diferencia estadísticamente "
+            "significativa entre los ingresos promedio "
+            "de los dos grupos seleccionados.")
+
+        if diferencia > 0:
+            st.write(
+                "En los registros seleccionados, quienes "
+                "permanecen tienen un ingreso promedio "
+                "superior al de quienes se retiran.")
+        elif diferencia < 0:
+            st.write(
+                "En los registros seleccionados, quienes "
+                "se retiran tienen un ingreso promedio "
+                "superior al de quienes permanecen.")
+        else:
+            st.write(
+                "Los dos grupos presentan el mismo ingreso promedio.")
+
+        st.caption(
+            "La diferencia observada no demuestra que el ingreso "
+            "sea la causa directa de la rotación.")
+
+    else:
+        st.info(
+            "Con los registros seleccionados no se encontró "
+            "evidencia estadística suficiente para afirmar "
+            "que los ingresos promedio de ambos grupos sean diferentes.")
+
 else:
-    st.info("""
-    **Interpretación:** No se encontró evidencia estadística suficiente
-    para afirmar que existe una diferencia entre los ingresos promedio
-    de los empleados que permanecieron y los que se retiraron.
-    """)
+    st.warning(
+        "No hay suficientes registros de empleados que permanecen "
+        "y se retiran para realizar esta comparación. "
+        "Modifica los filtros para incluir ambos grupos.")
 
 st.header("Hallazgos e interpretación")
 
